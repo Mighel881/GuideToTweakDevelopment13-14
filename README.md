@@ -125,6 +125,15 @@ touch Tweak.h
 ARCHS = arm64 arm64e
 ```
 
+- Next, in your makefile again, put these underneath ```tweakname_FILES = Tweak.x and tweakname_CFLAGS = -fobjc-arc```:
+
+```
+SafariXPlus_EXTRA_FRAMEWORKS += Cephei
+SafariXPlus_PRIVATE_FRAMEWORKS = CoreTelephony
+```
+
+- Then delete this line ```INSTALL_TARGET_PROCESSES = SpringBoard```
+
 - Next, you need to install OpenSSH on your iPhone located in your package manager (cydia, zebra etc). This just makes it easier for you to test the tweak and install it on your device. 
 
 - Once that is done, go back into your makefile and put this in it nearer the top and replace yourip with your IP address of the phone you just installed OpenSSH on and you want to test your tweak on.

@@ -292,7 +292,7 @@ This is called a preference bundle and it is what appears in settings so the use
 
 - After that, you need to create a entry.plist file. To do this, cd into the main preference bundle folder inside your tweak, and type touch entry.plist. Remember 'touch', like we discussed before?
 
-- Go inside the entry.plist and put this in.
+- Go inside the entry.plist and put this in:
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -316,7 +316,7 @@ This is called a preference bundle and it is what appears in settings so the use
 </plist>
 ```
 
-- Change ‘YourTweakName’ to your tweak name, and the 3 XXX at the start of XXXRootListController to what you made at the start in theos. Make sure you change everything, or you it will not work.
+- Change ‘YourTweakName’ to your tweak name, and the 3 XXX at the start of XXXRootListController to what you made at the start in theos. Make sure you change everything, or you it will not work. Leave the line that says ```<key>label</key>```
 
 Now that you have created the folders needed, follow the next steps.
 

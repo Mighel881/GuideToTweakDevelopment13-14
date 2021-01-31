@@ -346,12 +346,6 @@ self.hidden = YES;
 %end
 ```
 
-- We now need to connect the Tweak.x to the Tweak.h. To do this, we will put this at the very top of your Tweak.x:
-
-```
-#import <Tweak.h>
-```
-
 - Now we have done that, we need to put a little code at the bottom. You need to replace ```TweakName```, ```name``` and ```yourvalue``` with the correct information. with your tweak name. Make sure you keep it exactly the same as everything else, apart from the control file where the identifier has to be lowercase. The code is:
 
 ```

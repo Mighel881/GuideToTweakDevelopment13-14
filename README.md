@@ -175,7 +175,7 @@ self.hidden = YES;
 
 ## Section 7 defining:
 
-- So now we have our code. Simple enough? I hope so. Now comes the defining. Personally, I don’t like this as you have to define a lot with certain methods, especially when hiding objects. If we compile without the following code, it will fail. So, type this a couple lines underneath the code you just typed:
+- So now we have our code. Simple enough? I hope so. Now comes the defining. Personally, I don’t like this as you have to define a lot with certain methods, especially when hiding objects. If we compile without the following code, it will fail. So, type both of these a couple lines underneath the code you just typed:
 
 
 

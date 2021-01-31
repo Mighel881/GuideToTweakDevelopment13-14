@@ -407,7 +407,7 @@ static BOOL yourvalue = NO;
 
 # Root.plist
 
-Now we have done the tweak.x and tweak.h, we can move onto creating the switch. Replace ```YourTweakName```, ```yourvalue``` and ```name of your switch```, to what you made them. Go into your Root.plist and remove everything and replace it with this:
+Now we have done the tweak.x and tweak.h, we can move onto creating the switch. Replace ```YourTweakName```, ```yourvalue``` and ```name of your switch``` and ```com.name.YourTweakName``` to what you made them. And please, make sure you change everything correctly!!!!! Go into your Root.plist and remove everything and replace it with this:
 
 
 ```

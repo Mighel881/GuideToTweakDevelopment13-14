@@ -63,9 +63,9 @@ So now that we covered the boring parts, let’s take a look into the juicier se
 
 - Install XCode from the Mac Appstore. It’s a meaty download, but it is required.
 
-- Installing THEOS and homebrew. So, seeing as you are a beginner, I am trying to make this guide as simple as possible for you. I have created a bash script on my GitHub named [QuickTHEOS](https://github.com/Kanns103/QuickTHEOS/blob/main/QuickTheos.sh) which quickly installs homebrew and theos, without you having to type out all the commands yourself. Copy and paste the whole QuickTHEOS.sh file, apart from the top line (#!/bin/sh) and paste It into your terminal window, this will do some downloading. Let it run and don’t quit your terminal. 
+- Installing THEOS and homebrew. So, seeing as you are a beginner, I am trying to make this guide as simple as possible for you. I have created a bash script on my GitHub named [QuickTHEOS](https://github.com/Kanns103/QuickTHEOS/blob/main/QuickTheos.sh) which quickly installs homebrew and theos, without you having to type out all the commands yourself. Copy and paste the whole QuickTHEOS.sh file, apart from the top line (#!/bin/sh) and paste It into your terminal window, this will do some downloading. Let it run and don’t quit your terminal. When you are presented with an option menu, just press the number to exit the script because we don't need the sdk or need to create a tweak template.
 
-- Once that is done installing, you need to run my script that I created which can be found on my GitHub named Xcode11Toolchain. This script fixes compiling for arm64e like we talked about earlier. Copy and paste everything in the Xcode11Toolchain.sh file apart from the top line (#!/bin/sh) into your Mac terminal window, then press enter. It will run and download some stuff, then when you are presented with an option menu, select number 1 and press enter, this will run some more commands. If you are unsure as to what is happening, the code you are pasting is all there. If anything goes wrong, or you just want the XCode 12 toolchain back for some reason, you can run the script again and select option 2. This will bring back the Xcode 12 toolchain and remove the 11 toolchain. Right, so now that you have selected option one, after it has run, just quit terminal.
+- Once that is done installing, you need to run my script that I created which can be found on my GitHub named [Xcode11Toolchain](https://github.com/Kanns103/Xcode11Toolchain/blob/main/Xcode11Toolchain.sh) . This script fixes compiling for arm64e like we talked about earlier. Copy and paste everything in the Xcode11Toolchain.sh file apart from the top line (#!/bin/sh) into your Mac terminal window, then press enter. It will run and download some stuff, then when you are presented with an option menu, select number 1 and press enter, this will run some more commands. If you are unsure as to what is happening, the code you are pasting is all there. If anything goes wrong, or you just want the XCode 12 toolchain back for some reason, you can run the script again and select option 2. This will bring back the Xcode 12 toolchain and remove the 11 toolchain. Right, so now that you have selected option one, after it has run, just quit terminal.
 
 - Downloading the SDK’s. Go into your name in finder, find the theos folder, go into the sdk folder and delete everything in there. Now download the file called 137SDK in the github page at the top. You can do this by making your safari page full screen, then clicking the download button. Once that is done, open it, drag the 137SDK folder inside your sdk folder in theos. If it is zipped, unzip it to a folder.
 
@@ -101,10 +101,10 @@ Let’s actually create the code now. Open up your code editor on a fresh window
 
 - Click your control file. Your control file is the information and restrictions of your tweak. Most things should be filled out so just leave it be. 
 
-- Next, open up your makefile and we need to add in a few things. At the top, put this. This will allow your tweak to work on A12 + devices. Remember, if you get confused, take a look at my files on FastCC on my github.
+- Next, open up your makefile and we need to add in a few things. First, delete the line that says something like 'TARGET = iphone:clang:13.0.:7.0", then at the top, put this. This will allow your tweak to work on A12 + devices. Remember, if you get confused, take a look at my files on FastCC on my github.
 
 ```
-archs = arm64 arm64e
+ARCHS = arm64 arm64e
 ```
 
 - Next, you need to install OpenSSH on your iPhone located in your package manager (cydia, zebra etc). This just makes it easier for you to test the tweak and install it on your device. 

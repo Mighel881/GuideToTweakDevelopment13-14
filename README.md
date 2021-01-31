@@ -295,7 +295,25 @@ This is called a preference bundle and it is what appears in settings so the use
 - Go inside the entry.plist and put this in.
 
 ```
-<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"> <plist version="1.0"> <dict>     <key>entry</key>     <dict>         <key>bundle</key>         <string>YourTweakName</string>         <key>cell</key>         <string>PSLinkCell</string>         <key>detail</key>         <string>XXXRootListController</string>         <key>icon</key>         <string>icons/icon.png</string>         <key>isController</key>         <true/>         <key>label</key>         <string>YourTweakName</string>     </dict> </dict> </plist>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>entry</key>
+	<dict>
+		<key>bundle</key>
+		<string>TweakName</string>
+		<key>cell</key>
+		<string>PSLinkCell</string>
+		<key>detail</key>
+		<string>ALARootListController</string>
+		<key>isController</key>
+		<true/>
+		<key>label</key>
+		<string>TweakName</string>
+	</dict>
+</dict>
+</plist>
 ```
 
 - Change ‘YourTweakName’ to your tweak name, and the 3 XXX at the start of XXXRootListController to what you made at the start in theos. Make sure you change everything, or you it will not work.

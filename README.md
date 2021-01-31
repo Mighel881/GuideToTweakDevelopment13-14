@@ -300,9 +300,59 @@ Alright so that is all done, lets move on.
 
 ## Tweak.x
 
+If you followed the code above to hide the dock, then you can just add to it. We need to create a key so we can link them to the Root.plist. To do this, we need to go inbetween the brackets after -(void)layoutSubviews. First, we need to call %orig. %orig is a function that calls the original value. Without it, there is a good chance your switch will mess up. After that, we need to add in the switch, which will start with 'if', then in brackets would be your unique identifier value, this can be anything. You want to do this to both bits of code in the tweak.x and the final code with the key in it will look like this:
+
+```
+%hook SBDockView
+-(void)layoutSubviews {
+%orig;
+if(yourvalue)
+self.hidden = YES;
+%end
+```
+
 - We now need to connect the Tweak.x to the Tweak.h. To do this, we will put this at the very top of your Tweak.x:
 
 ```
 #import <Tweak.h>
 ```
+
+- Now we have done that, we need to put a little code at the bottom. You need to replace 'TweakName' with your tweak name. Make sure you keep it exactly the same as everything else, apart from the control file where the identifier has to be lowercase. The code is:
+
+```
+static void loadPrefs(){
+    NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.kanns.TweakName.plist"];
+
+    if(prefs){
+
+    yourvalue = ([prefs objectForKey:@"yourvalue"] ? [[prefs objectForKey:@"yourvalue"] boolValue] : yourvalue)
+
+
+      }
+}
+
+%ctor {
+
+  if ([[[[NSProcessInfo processInfo] arguments] objectAtIndex:0] containsString:@"/Application"] || [[[[NSProcessInfo processInfo] arguments] objectAtIndex:0] containsString:@"SpringBoard.app"]) {
+CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)loadPrefs, CFSTR("com.kanns.TweakName/settingschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+loadPrefs();
+
+if(enabled)
+  %init;
+}
+}
+```
+
+- Let me do a little explaining. This part below is how you create an key for the preferences, specifically a BOOL value, which is either yes/no. This bit, you have to add in another one of these for each key or switch that you add. 
+
+```
+yourvalue = ([prefs objectForKey:@"yourvalue"] ? [[prefs objectForKey:@"yourvalue"] boolValue] : yourvalue)
+```
+
+# Tweak.h
+
+- Now because we have a Tweak.h, we can move boring defining and importing into it. So, if you are using the guide I made from before to hide the dock, we need to remove the bit at the top that imports UIKit that says #import <UIKit> into the tweak.h. If you still don't understand, move the top line of the tweak.x into the tweak.h
+	
+
+
 

@@ -125,6 +125,12 @@ after-install::
 
 	install.exec "sbreload"
  ```
+ 
+- Now that we have the makefile done, lets create the actual code. First, we need to import UIKit. You need to import this most of the time. So, at the very top of your tweak.x, type:
+
+```
+#import <UIKit/UIKit.h>
+```
 
 - Next, open up your tweak.x and delete absolutely everything within it, this is just blank text. Go ahead and take a quick red if you like. In most cases, your code editor won’t recognise it as objective c so it will recognise it as plain text, but this won’t affect anything. Just go down to the bottom right, select plain text and select objective C or C from the list, now it will be coloured. 
 
@@ -236,6 +242,7 @@ I have already mentioned all of this on my website but for those of you who have
 
 
 
+
 ## Got errors you can’t solve? 
 
 Feel free to drop me a message on [Twitter](https://twitter.com/kanns103) or by [Email](mailto:kannsbusiness@yahoo.com)
@@ -246,3 +253,56 @@ Feel free to drop me a message on [Twitter](https://twitter.com/kanns103) or by 
 ## Want to support my work?
 
 Donating is not mandatory but it would be appreciated! Here is my [paypal](https://www.paypal.me/kanns103)
+
+
+
+
+
+
+
+
+
+
+
+# Done all that and want to make switches and options for the user to choose from?
+
+This is called a preference bundle and it is what appears in settings so the user can select what options they want. To do this, you can use THEOS but you have to edit some folders to make it more simple. Lets say you already have your main tweak template without any preferences. 
+
+- So first, you need to cd into your tweak in terminal, then run the theos command to bring up the options, then type the number that says iPhone/preference_bundle_modern. 
+
+- Once that is done, fill out everything with the same name and identifier as the main code. 
+
+- Then when it says XXX change it to something unique, like WOA. If you don’t, it will merge with a different tweak and mess up. After that, there should be a folder in your tweak called the same name as your tweak. 
+
+- Inside, delete the whole layout folder. 
+
+- After that, you need to create a entry.plist file. To do this, cd into the main preference bundle folder inside your tweak, and type touch entry.plist. Remember 'touch', like we discussed before?
+
+- Go inside the entry.plist and put this in.
+
+```
+<?xml version="1.0" encoding="UTF-8"?> <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"> <plist version="1.0"> <dict>     <key>entry</key>     <dict>         <key>bundle</key>         <string>YourTweakName</string>         <key>cell</key>         <string>PSLinkCell</string>         <key>detail</key>         <string>XXXRootListController</string>         <key>icon</key>         <string>icons/icon.png</string>         <key>isController</key>         <true/>         <key>label</key>         <string>YourTweakName</string>     </dict> </dict> </plist>
+```
+
+- Change ‘YourTweakName’ to your tweak name, and the 3 XXX at the start of XXXRootListController to what you made at the start in theos. Make sure you change everything, or you it will not work.
+
+Now that you have created the folders needed, follow the next steps.
+
+## Create another file
+
+- We are now going to create a file called Tweak.h. This file is used mostly for defining and separating defining from all your main code. To create it, cd into your main tweak folder (not the preferences folder) and type the following:
+
+```
+touch Tweak.h
+```
+
+Alright so that is all done, lets move on.
+
+## Tweak.x
+
+- We now need to connect the Tweak.x to the Tweak.h. To do this, we will put this at the very top of your Tweak.x:
+
+```
+#import <Tweak.h>
+```
+

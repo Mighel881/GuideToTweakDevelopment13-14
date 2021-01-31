@@ -324,6 +324,16 @@ if(yourvalue)
 self.hidden = YES;
 %end
 ```
+and
+
+```
+%hook SBFloatingDockPlatterView
+-(void)layoutSubviews {
+%orig;
+if(yourvalue)
+self.hidden = YES;
+%end
+```
 
 - We now need to connect the Tweak.x to the Tweak.h. To do this, we will put this at the very top of your Tweak.x:
 

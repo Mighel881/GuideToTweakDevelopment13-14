@@ -306,7 +306,7 @@ This is called a preference bundle and it is what appears in settings so the use
 		<key>cell</key>
 		<string>PSLinkCell</string>
 		<key>detail</key>
-		<string>ALARootListController</string>
+		<string>XXXRootListController</string>
 		<key>isController</key>
 		<true/>
 		<key>label</key>

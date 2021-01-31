@@ -77,7 +77,7 @@ So now that we covered the boring parts, let’s take a look into the juicier se
 
 ## Section 5 creating tweak:
 
-So, now you have everything set up for creating a tweak, let’s get into it. We are going to create a new project without a preference bundle. Open up a fresh terminal window and type this $THEOS/bin/nic.pl and this should bring up some options (If you have done the steps before correctly. This is theos in action. Find the option that has iPhone/Tweak next to it, type the number next to it and press enter. 
+So, now you have everything set up for creating a tweak, let’s get into it. We are going to create a new project without a preference bundle. Open up a fresh terminal window and type this ```$THEOS/bin/nic.pl``` and this should bring up some options (If you have done the steps before correctly. This is theos in action. Find the option that has iPhone/Tweak next to it, type the number next to it and press enter. 
 
 - Next, the project name can be anything, obviously your tweak name. For the tweak we will make, we will be hiding the dock, so let’s call it HideDock14. Once you have typed that, press enter, and you will be presented with another option. 
 
@@ -85,7 +85,7 @@ So, now you have everything set up for creating a tweak, let’s get into it. We
 
 - Next, the Author/Maintainer is your developer name. If you don’t have one, just use your actual name. Type that and press enter. 
 
-- Next, the bundle filter is what fills out the .plist file I was talking about above. So because we will be targeting the dock, it will be com.apple.springboard. By default, it is already that, so just press enter. 
+- Next, the bundle filter is what fills out the .plist file I was talking about above. So because we will be targeting the dock, it will be ```com.apple.springboard```. By default, it is already that, so just press enter. 
 
 - Then the next option which says Springboard, just press enter. And that’s it, your template has been created. Locate your name in finder and within the list of folders, there should be your tweak, titled hidedock14. Drag it to your desktop so it is easier to work with. 
 
@@ -101,7 +101,7 @@ Let’s actually create the code now. Open up your code editor on a fresh window
 
 - Click your control file. Your control file is the information and restrictions of your tweak. Most things should be filled out so just leave it be. 
 
-- Next, open up your makefile and we need to add in a few things. First, delete the line that says something like 'TARGET = iphone:clang:13.0.:7.0", then at the top, put this. This will allow your tweak to work on A12 + devices. Remember, if you get confused, take a look at my files on FastCC on my github.
+- Next, open up your makefile and we need to add in a few things. First, delete the line that says something like ```TARGET = iphone:clang:13.0.:7.0```, then at the top, put this. This will allow your tweak to work on A12 + devices. Remember, if you get confused, take a look at my files on FastCC on my github.
 
 ```
 ARCHS = arm64 arm64e

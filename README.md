@@ -288,6 +288,14 @@ This is called a preference bundle and it is what appears in settings so the use
 ```ARCHS = arm64 arm64e```
 ```THEOS_DEVICE_IP=yourip```
 
+- In your preferences makefile, put this at the bottom:
+
+```
+internal-stage::
+	$(ECHO_NOTHING)mkdir -p "$(THEOS_STAGING_DIR)/Library/PreferenceLoader/Preferences"$(ECHO_END)
+	$(ECHO_NOTHING)cp entry.plist "$(THEOS_STAGING_DIR)/Library/PreferenceLoader/Preferences/TweakName.plist"$(ECHO_END)
+```
+
 - Inside, delete the whole layout folder. 
 
 - After that, you need to create a entry.plist file. To do this, cd into the main preference bundle folder inside your tweak, and type touch entry.plist. Remember 'touch', like we discussed before?

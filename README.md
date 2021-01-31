@@ -193,7 +193,7 @@ self.hidden = YES;
 
 ## Section 7 defining:
 
-- So now we have our code. Simple enough? I hope so. Now comes the defining. Personally, I don’t like this as you have to define a lot with certain methods, especially when hiding objects. If we compile without the following code, it will fail. So, type both of these a couple lines underneath the code you just typed:
+- So now we have our code. Simple enough? I hope so. Now comes the defining. Personally, I don’t like this as you have to define a lot with certain methods, especially when hiding objects. If we compile without the following code, it will fail. So, type both of these a couple lines in your Tweak.h:
 
 
 
@@ -282,6 +282,11 @@ This is called a preference bundle and it is what appears in settings so the use
 - Once that is done, fill out everything with the same name and identifier as the main code. 
 
 - Then when it says XXX change it to something unique, like WOA. If you don’t, it will merge with a different tweak and mess up. After that, there should be a folder in your tweak called the same name as your tweak. 
+
+- Now, in the new makefile in the main preferences folder you just made in the tweak, get rid of the very top line that says something like ```TARGET := iphone:clang:latest:7.0``` and replace it with ```export SDKVERSION=13.7```, then after that, put these two underneath it, and like before, change ```yourip``` with your ip address:
+
+```ARCHS = arm64 arm64e```
+```THEOS_DEVICE_IP=yourip```
 
 - Inside, delete the whole layout folder. 
 

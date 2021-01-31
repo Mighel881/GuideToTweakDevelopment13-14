@@ -320,13 +320,6 @@ This is called a preference bundle and it is what appears in settings so the use
 
 Now that you have created the folders needed, follow the next steps.
 
-## Create another file
-
-- We are now going to create a file called Tweak.h. This file is used mostly for defining and separating defining from all your main code. To create it, cd into your main tweak folder (not the preferences folder) and type the following:
-
-```
-touch Tweak.h
-```
 
 Alright so that is all done, lets move on.
 

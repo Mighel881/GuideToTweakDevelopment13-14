@@ -354,7 +354,7 @@ static void loadPrefs(){
 
     if(prefs){
 
-    yourvalue = ([prefs objectForKey:@"yourvalue"] ? [[prefs objectForKey:@"yourvalue"] boolValue] : yourvalue)
+    yourvalue = ([prefs objectForKey:@"yourvalue"] ? [[prefs objectForKey:@"yourvalue"] boolValue] : yourvalue);
 
 
       }

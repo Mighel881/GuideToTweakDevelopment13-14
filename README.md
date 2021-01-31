@@ -366,7 +366,6 @@ static void loadPrefs(){
 CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)loadPrefs, CFSTR("com.name.TweakName/settingschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
 loadPrefs();
 
-if(enabled)
   %init;
 }
 }

@@ -99,6 +99,24 @@ So, now you have everything set up for creating a tweak, let’s get into it. We
 
 Let’s actually create the code now. Open up your code editor on a fresh window and drag your whole tweak folder into it. 
 
+- First, we need to create a Tweak.h which we can use for defining. To do this cd into your project using cd then drag the folder, then type this:
+
+```
+touch Tweak.h
+```
+
+- After, put this at the top of your Tweak.x:
+
+```
+#import "Tweak.h"
+```
+
+- After that, put this at the top of your Tweak.h:
+
+```
+#import <UIKit/UIKit.h>
+```
+
 - Click your control file. Your control file is the information and restrictions of your tweak. Most things should be filled out so just leave it be. 
 
 - Next, open up your makefile and we need to add in a few things. First, delete the line that says something like ```TARGET = iphone:clang:13.0.:7.0```, then at the top, put this. This will allow your tweak to work on A12 + devices. Remember, if you get confused, take a look at my files on FastCC on my github.
@@ -126,13 +144,7 @@ after-install::
 	install.exec "sbreload"
  ```
  
-- Now that we have the makefile done, lets create the actual code. First, we need to import UIKit. You need to import this most of the time. So, at the very top of your tweak.x, type:
-
-```
-#import <UIKit/UIKit.h>
-```
-
-- Next, open up your tweak.x and delete absolutely everything within it, this is just blank text. Go ahead and take a quick red if you like. In most cases, your code editor won’t recognise it as objective c so it will recognise it as plain text, but this won’t affect anything. Just go down to the bottom right, select plain text and select objective C or C from the list, now it will be coloured. 
+- Now that we have the makefile done, lets create the actual code. Next, open up your tweak.x and delete absolutely everything within it, this is just blank text. Go ahead and take a quick red if you like. In most cases, your code editor won’t recognise it as objective c so it will recognise it as plain text, but this won’t affect anything. Just go down to the bottom right, select plain text and select objective C or C from the list, now it will be coloured. 
 
 - So, the piece of code that we are about to write will only be a few lines. Let me break it down bit by bit. To start off with, you need a hook and an end. A hook and end are important. A hook is the unique identifier on the method you want to change, and end is how you stop the code. To start off with, we are going to hide the dock on non-notched devices. So, type this,
 
@@ -348,7 +360,6 @@ yourvalue = ([prefs objectForKey:@"yourvalue"] ? [[prefs objectForKey:@"yourvalu
 
 # Tweak.h
 
-Now because we have a Tweak.h, we can move boring defining and importing into it. So, if you are using the guide I made from before to hide the dock, we need to remove the bit at the top that imports UIKit that says ```#import <UIKit>``` into the tweak.h. If you still don't understand, move the top line of the tweak.x into the top line of your tweak.h. Also, move the two interfacing sections into the tweak.h below UIKit.
 
 - Now we have that, we need to add a few more things to our tweak.h. You also have to create a new one of these for each switch and change ```yourvalue``` again, like so:
 

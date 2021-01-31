@@ -261,9 +261,6 @@ Donating is not mandatory but it would be appreciated! Here is my [paypal](https
 
 
 
-
-
-
 # Done all that and want to make switches and options for the user to choose from?
 
 This is called a preference bundle and it is what appears in settings so the user can select what options they want. To do this, you can use THEOS but you have to edit some folders to make it more simple. Lets say you already have your main tweak template without any preferences. 
@@ -317,11 +314,11 @@ self.hidden = YES;
 #import <Tweak.h>
 ```
 
-- Now we have done that, we need to put a little code at the bottom. You need to replace 'TweakName' with your tweak name. Make sure you keep it exactly the same as everything else, apart from the control file where the identifier has to be lowercase. The code is:
+- Now we have done that, we need to put a little code at the bottom. You need to replace ```TweakName```, ```name``` and ```yourvalue``` with the correct information. with your tweak name. Make sure you keep it exactly the same as everything else, apart from the control file where the identifier has to be lowercase. The code is:
 
 ```
 static void loadPrefs(){
-    NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.kanns.TweakName.plist"];
+    NSMutableDictionary *prefs = [[NSMutableDictionary alloc] initWithContentsOfFile:@"/var/mobile/Library/Preferences/com.name.TweakName.plist"];
 
     if(prefs){
 
@@ -334,7 +331,7 @@ static void loadPrefs(){
 %ctor {
 
   if ([[[[NSProcessInfo processInfo] arguments] objectAtIndex:0] containsString:@"/Application"] || [[[[NSProcessInfo processInfo] arguments] objectAtIndex:0] containsString:@"SpringBoard.app"]) {
-CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)loadPrefs, CFSTR("com.kanns.TweakName/settingschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
+CFNotificationCenterAddObserver(CFNotificationCenterGetDarwinNotifyCenter(), NULL, (CFNotificationCallback)loadPrefs, CFSTR("com.name.TweakName/settingschanged"), NULL, CFNotificationSuspensionBehaviorCoalesce);
 loadPrefs();
 
 if(enabled)
@@ -343,7 +340,7 @@ if(enabled)
 }
 ```
 
-- Let me do a little explaining. This part below is how you create an key for the preferences, specifically a BOOL value, which is either yes/no. This bit, you have to add in another one of these for each key or switch that you add. 
+- Let me do a little explaining. This part below is how you create a key for the preferences, specifically a BOOL value, which is either yes/no. This bit, you have to add in another one of these for each key or switch that you add and remember to change ```yourvalue``` with your actual value. 
 
 ```
 yourvalue = ([prefs objectForKey:@"yourvalue"] ? [[prefs objectForKey:@"yourvalue"] boolValue] : yourvalue)
@@ -351,8 +348,52 @@ yourvalue = ([prefs objectForKey:@"yourvalue"] ? [[prefs objectForKey:@"yourvalu
 
 # Tweak.h
 
-- Now because we have a Tweak.h, we can move boring defining and importing into it. So, if you are using the guide I made from before to hide the dock, we need to remove the bit at the top that imports UIKit that says #import <UIKit> into the tweak.h. If you still don't understand, move the top line of the tweak.x into the tweak.h
-	
+Now because we have a Tweak.h, we can move boring defining and importing into it. So, if you are using the guide I made from before to hide the dock, we need to remove the bit at the top that imports UIKit that says ```#import <UIKit>``` into the tweak.h. If you still don't understand, move the top line of the tweak.x into the top line of your tweak.h. Also, move the two interfacing sections into the tweak.h below UIKit.
 
+- Now we have that, we need to add a few more things to our tweak.h. You also have to create a new one of these for each switch and change ```yourvalue``` again, like so:
+
+
+```
+static BOOL yourvalue = NO;
+```
+
+
+# Root.plist
+
+Now we have done the tweak.x and tweak.h, we can move onto creating the switch. Replace ```YourTweakName```, ```yourvalue``` and ```name of your switch```, to what you made them. Go into your Root.plist and remove everything and replace it with this:
+
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSwitchCell</string>
+			<key>default</key>
+			<false/>
+			<key>defaults</key>
+			<string>com.name.YourTweakName</string>
+			<key>key</key>
+			<string>yourvalue</string>
+			<key>label</key>
+			<string>Name of your switch</string>
+			<key>PostNotification</key>
+			<string>com.name.YourTweak/settingschanged</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>YourTweakName</string>
+</dict>
+</plist>
+```
 
 

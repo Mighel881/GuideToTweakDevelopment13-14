@@ -462,6 +462,6 @@ Now we have done the Tweak.x and Tweak.h, we can move onto creating the switch. 
 
 Contact me on [Twitter](https://Twitter.com/kanns103) or [email](mailto:kannsbusiness@yahoo.com)
 
-Donating isn't mandatory but if you want to support my work here is my [paypal](www.paypal.me/jackhughes10)
+Donating isn't mandatory but if you want to support my work here is my [paypal](https://www.paypal.me/jackhughes10)
 
 

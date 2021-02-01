@@ -284,7 +284,7 @@ Feel free to drop me a message on [Twitter](https://twitter.com/kanns103) or by 
 
 ## Want to support my work?
 
-Donating is not mandatory but it would be appreciated! Here is my [paypal](https://www.paypal.me/kanns103)
+Donating is not mandatory but it would be appreciated! Here is my [paypal](https://www.paypal.me/jackhughes10)
 
 
 
@@ -461,5 +461,7 @@ Now we have done the Tweak.x and Tweak.h, we can move onto creating the switch. 
 # Have questions? Need help?
 
 Contact me on [Twitter](https://Twitter.com/kanns103) or [email](mailto:kannsbusiness@yahoo.com)
+
+Donating isn't mandatory but if you want to support my work here is my [paypal](www.paypal.me/jackhughes10)
 
 
